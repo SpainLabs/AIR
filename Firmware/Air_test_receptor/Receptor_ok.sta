@@ -1,0 +1,100 @@
+
+ROM used: 4163 (51%)
+          4418 (54%) including unused fragments
+
+          3 Average locations per line
+          9 Average locations per statement
+
+RAM used: 78 (21%) at main() level
+          127 (35%) worst case
+
+Stack used: 6 worst case (out of 6 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  263   129  27  Receptor_ok.c
+  277     0   0  ..\..\..\..\..\Program Files (x86)\PICC\devices\16F876A.h
+  601   215  46  lib_rf2gh4_10.h
+  417   126  27  ..\..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+   28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+----- -----
+ 1614   470 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1   1             @delay_ms1
+0     30   1   0   143  2.2  RF_CONFIG_SPI
+0     14   0   0    98  1.7  RF_INT_EN
+0    459  11   2  2193  2.0  RF_CONFIG
+0     49   1   0   149  1.3  RF_ON
+1    482  12   4  3092  8.0  RF_SEND
+0    154   4   5  1065  6.0  RF_RECEIVE
+ Inline        2   215  4.7  procesar
+0      9   0   0             @const185
+0     90   2   1   676  4.8  int_RB0
+0    241   6   2   563  2.8  mote1
+0     21   1   0             @const190
+0     18   0   0             @const191
+0     10   0   0             @const192
+0     27   1   0             @const193
+0     21   1   3             @DIV88
+ Inline        2             @PRINTF_U_9600_62_63
+0     29   1   0             @const200
+0    105   3   6             @PRINTF_D_9600_62_63
+0     31   1   0             @const204
+0     30   1   0             @const205
+1    563  14   4   619  4.6  modo_2
+0     26   1   0             @const208
+0     34   1   0             @const209
+0     29   1   2             @ITOF
+1    202   5  14             @DIVFF
+1    119   3  13             @MULFF
+ Inline       16             @ADDFF
+0     14   0   0             @const221
+ Inline        5             @FTOSD
+1     68   2  13   619  4.6  @DIV3232
+1    263   6  13             @PRINTF_L32D_9600_62_63FPFPF
+1     74   2   4   428  4.9  modo_4
+0     26   1   0             @const233
+0     19   0   0   428  4.9  @const235
+1     61   1   1   219  2.6  Modo_escucha
+0     25   1   0             @const238
+0     54   1   1   110  2.3  modo_continuo
+0     48   1   0             @const240
+0     22   1   0   110  2.3  @const241
+2    322   8   1   928  4.7  MAIN
+0     20   0   0             @const244
+0     40   1   0             @const247
+0     22   1   0             @const248
+0     44   1   0             @const249
+0     26   1   0             @const250
+0     30   1   0             @const251
+0     30   1   0             @const252
+0     31   1   0             @const253
+0     33   1   0             @const255
+0     26   1   0             @const256
+
+Program metrics:
+    Functions               17
+    Statements              470
+    Comments                495
+    Volume (V)              18283
+    Difficilty (D)          64.0
+    Effort to implement (E) 1170430
+    Time to implement (T)   18 hours, 4 minutes
+    Est Delivered Bugs (B)  4
+    Cyclomatic Complexity   30
+    Maintainability (MI)    124
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00032    47  0  
+00033-007FF  1958  39  
+00800-00FFF  1832  216  
+01000-017FF   322  1726  
+01800-01FFF     0  2048  
+
+
+

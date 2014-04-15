@@ -1,0 +1,4 @@
+>>> Warning 216 "Emisor_ok.c" Line 258(0,1): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "Emisor_ok.c" Line 258(0,1): Interrupts disabled during call to prevent re-entrancy:  (RF_SEND)
+      Memory usage:   ROM=39%      RAM=27% - 40%
+      0 Errors,  2 Warnings.

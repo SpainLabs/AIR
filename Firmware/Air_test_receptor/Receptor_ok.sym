@@ -1,0 +1,230 @@
+004     @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+005     porta
+00B     INTCON
+015     CCP_1_LOW
+015-016 CCP_1
+016     CCP_1_HIGH
+01B-01C CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029.0   interRF
+029.1   RCVNW
+02A-02B noRF
+02C     DATA_N_SND
+02D     DATA_N_RCV
+02E-035 RF_DATA
+036     RF_DIR
+037     @TRIS_C
+038-039 strtok.save
+03A     Dato1
+03B-03E Bat_lvl
+03F     opcion
+040-047 buffer
+048-05F Buff
+060     ret2
+061-064 temperatura
+065     count
+066     b
+067-06A @PRINTF_L32D_9600_62_63FPFPF.P1
+067     RF_SEND.i
+067-068 @ITOF.P1
+067     RF_CONFIG.canal
+067-06A @ADDFF.P1
+067-06A @DIVFF.P2
+067     modo_4.j
+067     mote1.@SCRATCH1
+067     modo_2.@SCRATCH1
+067     Modo_escucha.@SCRATCH1
+067     modo_continuo.@SCRATCH1
+067     MAIN.@SCRATCH1
+068     RF_CONFIG.dir
+068     @delay_ms1.P1
+068     RF_SEND.estado
+068     modo_4.g
+068     @PRINTF_U_9600_62_63.P1
+068     mote1.@SCRATCH2
+068     modo_2.@SCRATCH2
+069     h
+069     @PRINTF_U_9600_62_63.P1
+069     RF_SEND.@SCRATCH1
+069     modo_2.@SCRATCH3
+06A     RF_SEND.@SCRATCH2
+06A     modo_2.@SCRATCH4
+06A     modo_4.@SCRATCH1
+06B-06E @DIVFF.P1
+06B     @PRINTF_D_9600_62_63.P2
+06B     @PRINTF_L32D_9600_62_63FPFPF.P3
+06B-06E @ADDFF.P4
+06B     modo_4.@SCRATCH2
+06C     @PRINTF_D_9600_62_63.P1
+06C     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH1
+06D     @PRINTF_D_9600_62_63.@SCRATCH1
+06D     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH2
+06E     @PRINTF_D_9600_62_63.@SCRATCH2
+06E     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH3
+06F     @PRINTF_D_9600_62_63.@SCRATCH3
+06F     @DIVFF.@SCRATCH1
+06F     @ADDFF.@SCRATCH1
+06F     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH4
+070     @PRINTF_D_9600_62_63.@SCRATCH4
+070     @DIVFF.@SCRATCH2
+070     @ADDFF.@SCRATCH2
+070     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH5
+071     @DIV88.P1
+071     @DIVFF.@SCRATCH3
+071     @ADDFF.@SCRATCH3
+071     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH6
+072     @DIV88.P1
+072     @DIVFF.@SCRATCH4
+072     @ADDFF.@SCRATCH4
+072     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH7
+073     @DIV88.@SCRATCH1
+073     @DIVFF.@SCRATCH5
+073     @ADDFF.@SCRATCH5
+073     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH8
+074     @DIVFF.@SCRATCH6
+074     @ADDFF.@SCRATCH6
+074     @FTOSD.@SCRATCH1
+075     @ADDFF.@SCRATCH7
+076     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B     @SCRATCH
+07F     @INTERRUPT_AREA
+085     TRISA
+086     TRISB
+087     TRISC
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0A3 @FTOSD.P1
+0A0-0A3 @DIV3232.P2
+0A0-0A3 @MULFF.P3
+0A4-0A7 @MULFF.P1
+0A4-0A7 @DIV3232.P2
+0A8     @MULFF.@SCRATCH1
+0A8     @DIV3232.@SCRATCH1
+0A9     @MULFF.@SCRATCH2
+0A9     @DIV3232.@SCRATCH2
+0AA     @MULFF.@SCRATCH3
+0AA     @DIV3232.@SCRATCH3
+0AB     @MULFF.@SCRATCH4
+0AB     @DIV3232.@SCRATCH4
+0AC     @MULFF.@SCRATCH5
+0AC     @DIV3232.@SCRATCH5
+0B9     int_RB0.ret1
+0BA     RF_RECEIVE.i
+0BA     procesar.i
+0BB     RF_RECEIVE.mas
+0BB     procesar.@SCRATCH1
+0BC     RF_RECEIVE.estado
+0BD     RF_RECEIVE.@SCRATCH1
+0BE     RF_RECEIVE.@SCRATCH2
+0FF     @INTERRUPT_AREA
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+
+ROM Allocation:
+05D1  @delay_ms1
+03E8  RF_CONFIG_SPI
+03DA  RF_INT_EN
+0406  RF_CONFIG
+05E6  RF_ON
+0800  RF_SEND
+02E6  RF_RECEIVE
+039E  procesar
+0033  @const185
+0380  int_RB0
+0695  mote1
+003C  @const190
+0051  @const191
+0063  @const192
+006D  @const193
+0617  @DIV88
+06EA  @PRINTF_U_9600_62_63
+0088  @const200
+062C  @PRINTF_D_9600_62_63
+00A5  @const204
+00C4  @const205
+0C6E  modo_2
+00E2  @const208
+00FC  @const209
+07BC  @ITOF
+09E2  @DIVFF
+0AAC  @MULFF
+0D16  @ADDFF
+011E  @const221
+0B9D  @FTOSD
+0B23  @DIV3232
+0B67  @PRINTF_L32D_9600_62_63FPFPF
+0EA1  modo_4
+012C  @const233
+0146  @const235
+0EEB  Modo_escucha
+0159  @const238
+0786  modo_continuo
+0172  @const240
+01A2  @const241
+1000  MAIN
+01B8  @const244
+01CC  @const247
+01F4  @const248
+020A  @const249
+0236  @const250
+0250  @const251
+026E  @const252
+028C  @const253
+02AB  @const255
+02CC  @const256
+1000  @cinit
+
+Project Directory:
+    C:\Users\Core\Dropbox\Codigo_ccsc\Air_test_receptor\
+
+Project Files:
+    Receptor_ok.c
+    ..\..\..\..\..\Program Files (x86)\PICC\devices\16F876A.h
+    lib_rf2gh4_10.h
+    ..\..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+    ..\..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+    ..\..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+
+Units:
+    C:\Users\Core\Dropbox\Codigo_ccsc\Air_test_receptor\Receptor_ok.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F876A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      Receptor_ok.err
+    Ext Symbols: Receptor_ok.esym
+    INHX8:       Receptor_ok.hex
+    Symbols:     Receptor_ok.sym
+    List:        Receptor_ok.lst
+    Debug/COFF:  Receptor_ok.cof
+    Project:     Receptor_ok.PJT
+    Call Tree:   Receptor_ok.tre
+    Statistics:  Receptor_ok.sta
