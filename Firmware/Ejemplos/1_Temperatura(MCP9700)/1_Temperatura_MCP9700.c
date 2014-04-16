@@ -59,16 +59,7 @@ void Send_frame(){
              //se lo suma antes de ejecutar las instrucciones.
        RF_DIR=0x08;           // Dirección del receptor.
        ret2=RF_SEND();        // Enviar datos.
-       
-       //Led de estado.
-       for (l=0;l<3;l++){
-        output_low(PIN_C0);
-        delay_ms(200);         
-        output_high(PIN_C0);
-        delay_ms(200);
-        output_low(PIN_C0);
-        }
-       
+       delay_ms(100);              
    }
 }
 
@@ -187,6 +178,14 @@ void main()
             gg++;
          }         
       
+      //Led de estado.
+       for (l=0;l<3;l++){
+        output_low(PIN_C0);
+        delay_ms(200);         
+        output_high(PIN_C0);
+        delay_ms(200);
+        output_low(PIN_C0);
+        }
       Send_frame(); //Envio el frame por RF.
       
       //Tiempo de espera.
