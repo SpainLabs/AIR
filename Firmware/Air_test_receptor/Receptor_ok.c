@@ -31,7 +31,7 @@ void procesar(){
     //printf(":");
     // Al tercer paquete, cambio de linea.
     b++;
-    if (b==3){
+    if (b==4){
     printf(" \r\n ");
     b=0;
     }
@@ -208,6 +208,7 @@ void modo_continuo(){
    }
 }
 
+// ---------------------------------------------------------------------------
 void main()                  //Programa principal
 {
    set_tris_a(0b000000);     // Todo el puerto A como salida.
@@ -230,10 +231,11 @@ void main()                  //Programa principal
        printf("--- Menu ---\r\n");
        printf("Canal;Direccion Master...: 0x40;0x08 \r\n");
        printf("(1)- Estado Mote 1 \r\n" );
-       printf("(3)- Modo grabar datos \r\n" );
+       printf("(2)- Modo grabar datos \r\n" );
        printf("(4)- Test Buffer Frame \r\n" );
        printf("(5)- Modo Continuo v0.1 \r\n" );
        printf("(6)- Modo Escucha \r\n" );
+       printf("\r\n" );
        
       //RF_OFF();
        opcion = getc();
