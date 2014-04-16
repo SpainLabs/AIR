@@ -13,7 +13,7 @@
 * Web version Hardware: http://www.spainlabs.com/foro/viewtopic.php?f=44&t=1337
 * Dispositivo: Air v1.0 rev A configurado como mote.
 *
-* Version: 001
+* Version: 002
 * Fecha: 15/0/14
 * Autor: Grafisoft
  -----------------------------------------------
@@ -35,13 +35,14 @@
 int8 buffer[8];  // Buffer de 8 bytes.
 char buff[32];   //Buffer para el frame.
 int8 ret2;
+int l; //Indice para parpadeo led estado.
 
 float temperatura = 0.0;
 
 //-----------------------------------------------------
 // Identificador (Nombre del dispositivo).
 // Nota: Vector de 8 bytes. 7 para caracteres, 1 para vector NULL.
-char* ident[8] = "Mote_01"; 
+char ident[9] = "Mote_01 "; 
 //-----------------------------------------------------
 
 
@@ -58,6 +59,15 @@ void Send_frame(){
              //se lo suma antes de ejecutar las instrucciones.
        RF_DIR=0x08;           // Dirección del receptor.
        ret2=RF_SEND();        // Enviar datos.
+       
+       //Led de estado.
+       for (l=0;l<3;l++){
+        output_low(PIN_C0);
+        delay_ms(200);         
+        output_high(PIN_C0);
+        delay_ms(200);
+        output_low(PIN_C0);
+        }
        
    }
 }
@@ -116,7 +126,7 @@ void main()
    
    while(true)
    {  
-      int l; //Indice para parpadeo led estado.
+      
       int t; //Indice para varias medidas de temperatura.
       
       //Led de estado.
@@ -134,21 +144,14 @@ void main()
         temperatura=0.0;
         
         //Varias medidas para sacar una media de la temperatura.
-        for (t=0;t<6;t++){
-         temperatura = temperatura + read_adc();
+        for (t=0;t<5;t++){
+         temperatura += read_adc();
          delay_ms(10);        
         }
-        temperatura = (temperatura/1);       
+        temperatura = (temperatura/5);       
         delay_ms(1);
         
-        //Led de estado.
-       for (l=0;l<2;l++){
-        output_low(PIN_C0);
-        delay_ms(200);         
-        output_high(PIN_C0);
-        delay_ms(200);
-        output_low(PIN_C0);
-        }
+       
        
      //Calculo de la temperatura dada por el sensor MCP9700. 
      //ADC configurado a 10 bits. Vcc = 5v.
@@ -156,33 +159,33 @@ void main()
      temperatura = temperatura - 0.5;
      temperatura = temperatura/0.01;
      
-     //Led estado.
-    for (l=0;l<3;l++){
-        output_low(PIN_C0);
-        delay_ms(200);         
-        output_high(PIN_C0);
-        delay_ms(200);
-        output_low(PIN_C0);}
-        delay_ms(2000);
-        
      //Conversion float to string.
      sprintf(s,"%2.2f",temperatura);
      
      // Cargo informacion al frame para ser enviada.
-     for (g=0;g<8;g++){
-            Buff[g] = ident[g];     
+     gg = 0;
+     for (g=0;g<9;g++){
+          Buff[gg] = ident[g];
+          gg++;
      }
      
-     for (g=8;g<21;g++)
+     for (g=0;g<13;g++)
          {         
-            Buff[g] = frase[g];           
+            Buff[gg] = frase[g];
+            gg++;
          }
-         g++;
-      for (gg=0;gg<7;gg++)
+         
+      for (g=0;g<5;g++)
          {         
-            Buff[g] = s[gg];
-            g++;
+            Buff[gg] = s[g];
+            gg++;
          }
+         
+      for (g=0;g<5;g++)
+         {            
+            Buff[gg] = " ";
+            gg++;
+         }         
       
       Send_frame(); //Envio el frame por RF.
       
